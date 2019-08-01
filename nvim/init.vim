@@ -1,22 +1,28 @@
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
+" Look
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
 
+" Format
 Plug 'w0rp/ale'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'sbdchd/neoformat'
-Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neoinclude.vim'
-Plug 'zchee/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/echodoc.vim'
 
-Plug 'Yggdroot/indentLine'
+" Deoplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs'
+Plug 'zchee/deoplete-clang'
+Plug 'zchee/deoplete-jedi'
+
+Plug 'ternjs/tern_for_vim'
 
 call plug#end()
 
@@ -75,21 +81,37 @@ let g:ale_linters = {
       \ 'cpp': ['clang'],
       \ 'c': ['clang'],
       \ 'python': ['flake8'],
+      \ 'javascript': ['eslint'],
       \ }
+let g:ale_fixers = {'javascript': ['eslint']}
 let g:ale_cpp_clang_options = '-std=c++17 -Wall -Wextra'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 0
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
 
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['buffer', 'around']
 
 " Deoplete Clang
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so.1'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-6.0/include'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+
+" Deoplete JavaScript
+let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ['tern']
+let g:tern#arguments = [' — persistent']
 
 " Echodoc
 let g:echodoc#enable_at_startup = 1
