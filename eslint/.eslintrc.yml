@@ -1,0 +1,54 @@
+extends: 'eslint:recommended'
+
+parserOptions:
+  ecmaVersion: 6
+
+env:
+  browser: false
+  node: true
+  es6: true
+
+rules:
+  no-unsafe-negation: error
+
+  indent: [warn, 2, { SwitchCase: 1 }]
+  linebreak-style: [error, unix]
+  quotes: [error, single]
+  semi: [error, always]
+
+  array-callback-return: error
+  complexity: [error, 10]
+  consistent-return: error
+  dot-location: [error, property]
+  dot-notation: error
+  eqeqeq: [error, always]
+  no-console: [error, { allow: [info, warn, error] }]
+  no-extend-native: error
+  no-extra-bind: error
+  no-global-assign: error
+  no-implicit-coercion: error
+  no-implied-eval: error
+  no-lone-blocks: error
+  no-loop-func: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions: error
+  no-useless-call: warn
+  no-useless-concat: warn
+  no-useless-escape: warn
+
+  # Variables
+  no-use-before-define: [error, nofunc]
+
+  # ECMAScript 6
+  no-duplicate-imports: error
+  no-useless-computed-key: error
+  no-useless-constructor: error
+  no-useless-rename: error
+  no-var: error
+  object-shorthand: error
+  prefer-const: [error, { destructuring: all }]
+  prefer-rest-params: error
+  prefer-spread: error
+  template-curly-spacing: [error, never]
+  rest-spread-spacing: [error, always]
