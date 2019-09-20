@@ -23,7 +23,13 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 
+" JavaScript
 Plug 'ternjs/tern_for_vim'
+
+" Ruby
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 
 call plug#end()
 
