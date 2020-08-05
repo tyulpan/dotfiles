@@ -189,3 +189,7 @@ bindsym ISO_Next_Group exec pkill -RTMIN+1 i3blocks
 
 # Dual monitor
 exec xrandr --output HDMI-0 --rotate left --right-of eDP-1-1
+
+# Keyboard layout
+exec setxkbmap -layout "us,ru,uk"
+exec setxkbmap -option "grp:alt_shift_toggle"
