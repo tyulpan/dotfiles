@@ -31,6 +31,9 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 
+" Haskell
+Plug 'eagletmt/ghcmod-vim'
+
 call plug#end()
 
 set clipboard+=unnamedplus
