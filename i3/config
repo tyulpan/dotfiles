@@ -188,7 +188,7 @@ bar {
 bindsym ISO_Next_Group exec pkill -RTMIN+1 i3blocks
 
 # Dual monitor
-exec xrandr --output HDMI-0 --rotate left --right-of eDP-1-1
+exec xrandr --output eDP-1-1 --auto --output HDMI-0 --rotate left --right-of eDP-1-1
 
 # Keyboard layout
 exec setxkbmap -layout "us,ru,uk"
